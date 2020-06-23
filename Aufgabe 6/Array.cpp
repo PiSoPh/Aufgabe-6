@@ -2,6 +2,8 @@
 #include <iostream> //for cout and endl
 #include <sstream>
 
+using namespace std;
+
 Array::Array()
 {
 }
@@ -101,36 +103,6 @@ void Array::print()
 	}
 }
 
-
-Array* Array::operator+(Array& obj)
-{
-	Array* buffArr;
-	int buff1;
-	int buff2;
-	if (this->arrSize < obj.arrSize)
-	{
-		buffArr = new Array(obj.arrSize);
-		for (int x = 0; x < this->arrSize; x++)
-		{
-			buff1 = this->get(x);
-			buff2 = obj.get(x);
-			buffArr->set(x, (buff1 + buff2));
-		}
-
-	}
-	else
-	{
-		buffArr = new Array(this->arrSize);
-		for (int x = 0; x < obj.arrSize; x++)
-		{
-			buff1 = this->get(x);
-			buff2 = obj.get(x);
-			buffArr->set(x, (buff1 + buff2));
-		}
-	}
-	return buffArr;
-}
-
 Array* Array::add(Array& other)
 {
 	Array* buffArr;
@@ -169,3 +141,32 @@ int* Array::m_resize(int* bufferArray, int newSize) //function now reusable, saf
 	return bufferArray;
 }
 
+Array* Array::operator+(Array& other)
+{
+	
+	Array* buffArr;
+	int buff1;
+	int buff2;
+	if (this->arrSize < other.arrSize)
+	{
+		buffArr = new Array(other.arrSize);
+		for (int x = 0; x < this->arrSize; x++)
+		{
+			buff1 = this->get(x);
+			buff2 = other.get(x);
+			buffArr->set(x, (buff1 + buff2));
+		}
+
+	}
+	else
+	{
+		buffArr = new Array(this->arrSize);
+		for (int x = 0; x < other.arrSize; x++)
+		{
+			buff1 = this->get(x);
+			buff2 = other.get(x);
+			buffArr->set(x, (buff1 + buff2));
+		}
+	}
+	return buffArr;
+}

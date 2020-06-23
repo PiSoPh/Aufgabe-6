@@ -2,15 +2,14 @@
 #include <memory>
 #include <iostream>
 
+using namespace std;
+
 int main()
 {
 	Array* arr1 = new Array(10);
 	Array* arr2 = new Array(5);
 	Array* arr3 = new Array(50);
 
-	//std::unique_ptr<Array> arr1(new Array(10));
-	//std::unique_ptr<Array> arr2(new Array(5));
-	//std::unique_ptr<Array> arr3(new Array(10));
 
 	for (int x = 0; x < 10; x++)
 	{
@@ -27,7 +26,9 @@ int main()
 
 	//arr3 = arr2->add(*arr1);
 
+	std::cout << (arr2+arr1);
 	arr3 = (arr1 + (int)arr2);
+
 	arr3->print();
 
 
