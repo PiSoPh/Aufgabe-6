@@ -17,7 +17,7 @@ public:
 
 
 	//Array* buffArr; //needed for operator overload
-	Array* operator+ (Array& obj);
+	Array* operator+ (Array* obj);
 	Array* add(Array& other);
 
 private:

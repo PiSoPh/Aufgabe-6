@@ -141,13 +141,13 @@ int* Array::m_resize(int* bufferArray, int newSize) //function now reusable, saf
 	return bufferArray;
 }
 
-Array* Array::operator+(Array& other)
+Array* Array::operator+(Array* other)
 {
 	
 	Array* buffArr;
 	int buff1;
 	int buff2;
-	if (this->arrSize < other.arrSize)
+	if (this->arrSize < other->arrSize)
 	{
 		buffArr = new Array(other.arrSize);
 		for (int x = 0; x < this->arrSize; x++)
