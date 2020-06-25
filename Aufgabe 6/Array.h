@@ -1,4 +1,5 @@
 #pragma once
+#include <iostream>
 
 using namespace std;
 
@@ -17,7 +18,15 @@ public:
 
 
 	//Array* buffArr; //needed for operator overload
-	Array* operator+ (Array* obj);
+	Array operator+ (Array& obj);
+
+	Array operator- (Array& obj);
+	Array operator* (Array& obj);
+
+	friend ostream& operator<<(ostream& os, Array& obj);
+
+	Array& operator++ ();
+	Array& operator-- ();
 	Array* add(Array& other);
 
 private:

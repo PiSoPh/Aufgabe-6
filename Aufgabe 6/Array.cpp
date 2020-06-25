@@ -103,6 +103,24 @@ void Array::print()
 	}
 }
 
+Array& Array::operator++()
+{
+	for (int x = 0; x < (this->getsize()); x++)
+	{
+		this->set(x, (this->get(x) + 1));
+	}
+	return *this;
+}
+
+Array& Array::operator--()
+{
+	for (int x = 0; x < (this->getsize()); x++)
+	{
+		this->set(x, (this->get(x) - 1));
+	}
+	return *this;
+}
+
 Array* Array::add(Array& other)
 {
 	Array* buffArr;
@@ -141,13 +159,13 @@ int* Array::m_resize(int* bufferArray, int newSize) //function now reusable, saf
 	return bufferArray;
 }
 
-Array* Array::operator+(Array* other)
+Array Array::operator+(Array& other)
 {
 	
 	Array* buffArr;
 	int buff1;
 	int buff2;
-	if (this->arrSize < other->arrSize)
+	if (this->arrSize < other.arrSize)
 	{
 		buffArr = new Array(other.arrSize);
 		for (int x = 0; x < this->arrSize; x++)
@@ -168,5 +186,77 @@ Array* Array::operator+(Array* other)
 			buffArr->set(x, (buff1 + buff2));
 		}
 	}
-	return buffArr;
+	return *buffArr;
+}
+
+Array Array::operator-(Array& obj)
+{
+
+	Array* buffArr;
+	int buff1;
+	int buff2;
+	if (this->arrSize < obj.arrSize)
+	{
+		buffArr = new Array(obj.arrSize);
+		for (int x = 0; x < this->arrSize; x++)
+		{
+			buff1 = this->get(x);
+			buff2 = obj.get(x);
+			buffArr->set(x, (buff1 - buff2));
+		}
+
+	}
+	else
+	{
+		buffArr = new Array(this->arrSize);
+		for (int x = 0; x < obj.arrSize; x++)
+		{
+			buff1 = this->get(x);
+			buff2 = obj.get(x);
+			buffArr->set(x, (buff1 - buff2));
+		}
+	}
+	return *buffArr;
+}
+
+Array Array::operator*(Array& obj)
+{
+
+	Array* buffArr;
+	int buff1;
+	int buff2;
+	if (this->arrSize < obj.arrSize)
+	{
+		buffArr = new Array(obj.arrSize);
+		for (int x = 0; x < this->arrSize; x++)
+		{
+			buff1 = this->get(x);
+			buff2 = obj.get(x);
+			buffArr->set(x, (buff1 * buff2));
+		}
+
+	}
+	else
+	{
+		buffArr = new Array(this->arrSize);
+		for (int x = 0; x < obj.arrSize; x++)
+		{
+			buff1 = this->get(x);
+			buff2 = obj.get(x);
+			buffArr->set(x, (buff1 * buff2));
+		}
+	}
+	return *buffArr;
+	
+}
+
+
+ostream& operator<<(ostream& os, Array& obj)
+{
+	for (int x = 0; x < (obj.getsize()); x++)
+	{
+		os << obj.get(x) << " ";
+	}
+
+	return os;
 }

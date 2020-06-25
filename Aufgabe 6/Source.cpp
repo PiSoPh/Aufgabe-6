@@ -6,30 +6,48 @@ using namespace std;
 
 int main()
 {
-	Array* arr1 = new Array(10);
-	Array* arr2 = new Array(5);
-	Array* arr3 = new Array(50);
+	Array arr1(10);
+	Array arr2(5);
 
 
 	for (int x = 0; x < 10; x++)
 	{
-		if (x < (arr2->getsize()))
+		if (x < (arr2.getsize()))
 		{
-			arr2->set(x, (3 + x));
+			arr2.set(x, (3 + x));
 		}
-		arr1->set(x, (20 - x)); //filling the array	
+		arr1.set(x, (20 - x)); //filling the array	
 	}
 
-	arr1->print();
+	arr1.print();
 	std::cout << std::endl;
-	arr2->print();
+	arr2.print();
 
-	//arr3 = arr2->add(*arr1);
+	//Operator Overload: +
+	Array add = (arr1 + arr2);
+	cout << "Add: " << endl;
+	add.print();
+	cout << endl;
 
-	std::cout << (arr2+arr1);
-	arr3 = (arr1 + (int)arr2);
+	//Operator Overload: -
+	Array subtract = arr1 - arr2;
+	cout << "Subtract: " << endl;
+	subtract.print();
+	cout << endl;
 
-	arr3->print();
+	//Operator Overload: *
+	Array multiply = arr1 * arr2;
+	cout << "Multiply: " << endl;
+	multiply.print();
+	cout << endl;
 
+	//Operator Overload: <<
+	cout << "Array 1: " << arr1 << endl;
+	cout << "Array 2: " << arr2 << endl;
 
+	//Operator Overload: ++
+	cout << "Increment: " << ++arr1 << endl;
+
+	//Operator Overload: --
+	cout << "Decrement: " << --arr2 << endl;
 }
