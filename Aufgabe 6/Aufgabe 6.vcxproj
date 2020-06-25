@@ -140,11 +140,9 @@
   <ItemGroup>
     <ClCompile Include="Array.cpp" />
     <ClCompile Include="Source.cpp" />
-    <ClCompile Include="TemplateArray.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Array.h" />
-    <ClInclude Include="TemplateArray.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

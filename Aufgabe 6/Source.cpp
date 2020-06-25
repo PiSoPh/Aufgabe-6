@@ -6,9 +6,21 @@ using namespace std;
 
 int main()
 {
+	/*Für die Klassen Array für den Datentyp int aus der Aufgabe 5.1 sollen nun Operatoren überschrieben
+	werden:
+			• + Operator addiert zwei Arrays, d.h. die Elemente mit gleichem Index werden addiert.
+			• Entsprechende Operatoren für – und *
+			• << Operator schreibt das Array auf die Konsole
+			• ++ bzw. – Operatoren inkrementieren bzw. dekrementieren die Elemente eines Arrays
+			• Tipp: ggf. sind weitere Operatorüberladungen und ein Kopierkonstruktor hilfreich
+	Sollten die Operanden (Arrays) bei binären Operatoren eine unterschiedliche Länge haben, behandeln
+	die Operatoren die Elemente bis zum Index des kürzeren Arrays.
+	Schreiben Sie ein geeignetes Programm, um die Operatorüberladungen zu testen.*/
+
+
+	//Initialise and fill Arrays
 	Array arr1(10);
 	Array arr2(5);
-
 
 	for (int x = 0; x < 10; x++)
 	{
